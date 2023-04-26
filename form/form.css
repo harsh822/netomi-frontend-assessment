@@ -1,0 +1,35 @@
+.form {
+    background-color: #ECECEB;
+    padding: 0px 5px;
+    padding-bottom: 50px;
+}
+
+input, select {
+    width: 100%;
+    padding: 7px 2px;
+    margin: 8px 0;
+    /* display: inline-block; */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.submit-button {
+    background-color: #037F7B;
+    border-radius: 4px;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+}
+/* #state */

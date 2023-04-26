@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+    <form action="" target="outer-iframe" class="form">
+        <h3>Can you please provide your personal details?</h3>
+        Name <br>
+        <input type="text" name="name">
+        <br>
+        Date of birth <br>
+        <input type="date" name="dob">
+        <br>
+        Contact Number <br>
+        <input type="number" name="contactnumber">
+        <br>
+        Country <br>
+        <select id="countrySelect" onchange="setState()"></select>
+        <!-- <input type="text" name="country"> -->
+        <br>
+        State <br>
+        <select id="stateSelect" ></select>
+        Your email <br>
+        <input type="email" name="email">
+        <br>
+        <br>
+        <button type="button" onclick="alert('Clicked')" class="submit-button">Submit</button>
+    </form>
+    <script src="./form.js"></script>
+</body>
+</html>
