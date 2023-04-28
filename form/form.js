@@ -11,11 +11,10 @@ const getPost = async () => {
 const displayOption = async () => {
   const options = await getPost();
   states.style.display = 'none';
-  // console.log("options",options);
   localStorage.setItem('apiData',JSON.stringify(options))
+  localStorage.setItem('form',"");
   options.forEach((option) => {
     const newOption = document.createElement("option");
-    // console.log(option);
     newOption.value = option.name;
     newOption.text = option.name;
     countries.appendChild(newOption);
@@ -24,9 +23,6 @@ const displayOption = async () => {
 displayOption();
 
 const setState = async ()=>{
-  console.log("sadsa");
-  // let countries = document.getElementById('countrySelect');
-  // let states = document.getElementById('stateSelect');
   states.innerHTML = '';
   let apiData = JSON.parse(localStorage.getItem('apiData'));
   let isStatePresent = false;
@@ -50,3 +46,40 @@ const setState = async ()=>{
     states.style.display = "block";
   }
 }
+
+
+let form = document.getElementById("form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let name = document.getElementById("name");
+  let dob = document.getElementById("dob");
+  let contactNumber = document.getElementById("contactnumber");
+  let country = document.getElementById("countrySelect");
+  let state = document.getElementById("stateSelect");
+  let email = document.getElementById("email");
+  let obj = {};
+  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let isValid = true;
+  if (name.value.length < 4 || name.value.length > 10) { 
+    obj.Name = {"error":"Length should be between 4-10 characters."};
+    isValid = false;
+  }
+  if(!email.value.match(validRegex)) {
+    obj.email = {"error":"should only support valid email address"};
+    isValid = false;
+  } 
+  if(contactNumber.value.length != 10) {
+    obj.contactnumber = {"error":"mobile number should be of 10 digits."}
+    isValid = false;
+  }
+  if(country.value == '' || state.value == '') {
+    obj.countryState = {"error":"country state are mandatory fields"};
+    isValid = false;
+  }
+  if(isValid) {
+    obj.form = {"success":"All fields are valid."};
+  }
+  localStorage.setItem("form",JSON.stringify(obj));
+});

@@ -1,4 +1,3 @@
-// var iframe = document.getElementById("myIframe");
-// iframe.onLoad = function(){
-//     iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-// }
+setInterval(() => {
+    document.getElementById("result").innerHTML = localStorage.getItem("form");
+}, 100);
